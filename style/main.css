@@ -1,0 +1,374 @@
+@import url('calendar.css');
+@import url('notes.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1a515e;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background-image: linear-gradient(to bottom, #1a515e, #1a515e, #1a515e, #1a515e, #1a515e, #1e5966, #22626e, #266a76, #2e7b84, #368d92, #3e9ea0, #46b0ae);
+}
+
+/* Новая шапка */
+.main-header {
+    background-color: rgba(26, 81, 94, 0.95);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #328275;
+    position: relative; /* Добавляем относительное позиционирование */
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.current-time {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: absolute; /* Абсолютное позиционирование */
+    left: 50%; /* Сдвигаем на 50% от левого края */
+    transform: translateX(-50%); /* Сдвигаем назад на половину своей ширины */
+}
+
+.account-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #88b990, #abcd9e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.account-placeholder:hover {
+    transform: scale(1.1);
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    padding-top: 30px;
+}
+
+.container {
+    width: 100%;
+    /* Убрать margin-bottom: 30px; */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.input-area {
+    display: flex;
+    margin-bottom: 25px;
+    gap: 10px;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.input-area input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input-area input:focus {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.input-area button {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #88b990;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input-area button:hover {
+    background-color: #abcd9e;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filters button:hover, .filters button.active {
+    background-color: #328275;
+}
+
+ul.todo-list {
+    list-style-type: none;
+    width: 100%;
+}
+
+ul.todo-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+ul.todo-list li:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+ul.todo-list li.completed {
+    opacity: 0.7;
+}
+
+ul.todo-list li.completed .todo-text {
+    text-decoration: line-through;
+}
+
+ul.todo-list li label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex: 1;
+}
+
+ul.todo-list li input[type="checkbox"] {
+    display: none;
+}
+
+.checkmark {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 12px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+ul.todo-list li input[type="checkbox"]:checked ~ .checkmark {
+    background-color: #88b990;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+ul.todo-list li input[type="checkbox"]:checked ~ .checkmark:after {
+    display: block;
+}
+
+.todo-text {
+    word-break: break-word;
+}
+
+.delete-btn {
+    border: none;
+    background: transparent;
+    color: #ff6b6b;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    max-width: 100%;
+    background-color: rgba(26, 81, 94, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+footer p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.contact {
+    font-weight: bold;
+    color: #abcd9e;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .main-header {
+        padding: 12px 20px;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .current-time {
+        font-size: 1.8rem;
+    }
+    
+    .container {
+        padding: 20px;
+    }
+    
+    .app-header h1 {
+        font-size: 2rem;
+    }
+    
+    .input-area {
+        flex-direction: column;
+    }
+}
+
+    /* Стили для трехколоночного макета */
+.main-dashboard {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.calendar-column {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+}
+
+.todo-column {
+    flex: 1;
+    min-width: 400px;
+    max-width: 500px;
+}
+
+.notes-column {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+}
+
+/* Адаптивность для трехколоночного макета */
+@media (max-width: 1200px) {
+    .main-dashboard {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .calendar-column, .notes-column {
+        flex: 1 0 45%;
+        max-width: 45%;
+    }
+    
+    .todo-column {
+        order: -1;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar-column, .notes-column, .todo-column {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .main-dashboard {
+        flex-direction: column;
+    }
+}
