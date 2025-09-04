@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+    <!-- Новая шапка -->
+    <header class="main-header">
+        <div class="logo">#TODO</div>
+        <div class="current-time" id="current-time">00:00:00</div>
+        <div class="account-placeholder">
+            <i class="fas fa-user"></i>
+        </div>
+    </header>
+ 
+    <main class="content">
+        <!-- Основной контейнер для трех колонок -->
+        <div class="main-dashboard">
+            <!-- Колонка календаря (слева) -->
+            <div class="column calendar-column">
+                <div class="calendar-section">
+                    <div class="calendar-header">
+                        <h2>Календарь</h2>
+                        <div class="month-nav">
+                            <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                            <span id="current-month-year">Сентябрь 2023</span>
+                            <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="calendar">
+                        <div class="weekdays">
+                            <div>Пн</div>
+                            <div>Вт</div>
+                            <div>Ср</div>
+                            <div>Чт</div>
+                            <div>Пт</div>
+                            <div>Сб</div>
+                            <div>Вс</div>
+                        </div>
+                        <div class="days" id="calendar-days">
+                            <!-- Дни будут заполняться через JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Колонка todo (по центру) -->
+            <div class="column todo-column">
+                <div class="container">
+                    <div class="app-header">
+                        <h1>Мои задачи</h1>
+                    </div>
+                    
+                    <div class="input-area">
+                        <input type="text" placeholder="Добавьте новую задачу...">
+                        <button id="add-btn">Добавить</button>
+                    </div>
+                    
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="active">Активные</button>
+                        <button class="filter-btn" data-filter="completed">Завершенные</button>
+                    </div>
+                    
+                    <ul class="todo-list">
+                        <li class="completed">
+                            <label>
+                                <input type="checkbox" checked>
+                                <span class="checkmark"></span>
+                                <span class="todo-text">Пример выполненной задачи</span>
+                            </label>
+                            <button class="delete-btn">×</button>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                <span class="todo-text">Изучить HTML и CSS</span>
+                            </label>
+                            <button class="delete-btn">×</button>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                <span class="todo-text">Создать свой первый проект</span>
+                            </label>
+                            <button class="delete-btn">×</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Колонка заметок (справа) -->
+            <div class="column notes-column">
+                <div class="notes-section">
+                    <div class="notes-header">
+                        <h2>Заметки</h2>
+                        <button id="add-note-btn"><i class="fas fa-plus"></i> Новая заметка</button>
+                    </div>
+                    <div class="notes-list" id="notes-list">
+                        <!-- Список заметок будет заполняться через JavaScript -->
+                    </div>
+                    <div class="note-editor" id="note-editor" style="display: none;">
+                        <input type="text" id="note-title" placeholder="Заголовок заметки">
+                        <textarea id="note-content" placeholder="Содержание заметки..."></textarea>
+                        <div class="note-actions">
+                            <button id="save-note">Сохранить</button>
+                            <button id="cancel-note">Отмена</button>
+                            <button id="delete-note" class="delete-btn">Удалить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Использование todo-листов увеличивает продуктивность на 25%, помогая организовать задачи и расставить приоритеты.</p>
+        <p class="contact">tg @crumbyez</p>
+    </footer>
+
+    <script src="js/time.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/notes.js"></script>
+    <script src="js/todo.js"></script>
+</body>
+</html>
