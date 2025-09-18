@@ -1,0 +1,133 @@
+/* Стили для заметок */
+.notes-section {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    height: fit-content;
+}
+
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.notes-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+#add-note-btn {
+    background-color: #88b990;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#add-note-btn:hover {
+    background-color: #abcd9e;
+}
+
+.notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.note-item:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.note-item h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.note-item p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.note-editor {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#note-title, #note-content {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+#note-title::placeholder, #note-content::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#note-title:focus, #note-content:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+#note-content {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.note-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.note-actions button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#save-note {
+    background-color: #88b990;
+    color: white;
+}
+
+#save-note:hover {
+    background-color: #abcd9e;
+}
+
+#cancel-note {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+#cancel-note:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#delete-note {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+#delete-note:hover {
+    background-color: #ff5252;
+}
