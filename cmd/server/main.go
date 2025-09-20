@@ -6,6 +6,9 @@ import (
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/MaximaRasskazov/to-do-list/internal/handlers"
+	"github.com/MaximaRasskazov/to-do-list/internal/models"
 )
 
 // Middleware
@@ -26,12 +29,12 @@ func enableCORS(next http.HandlerFunc) http.HandlerFunc {
 // Главная функция
 func main() {
 	// Инициализация данных
-	todos = []Todo{
+	models.Todos = []models.Todo{
 		{ID: 1, Title: "Привет", Completed: false, CreatedAt: time.Now()}, {ID: 2, Title: "Сосед", Completed: true, CreatedAt: time.Now()},
 	}
 
 	// !!! При запуске перезаписывается !!!
-	currentID = 2
+	models.CurrentID = 2
 
 	portPtr := flag.Int("port", 3000, "номер порта")
 	dirPtr := flag.String("dir", "./static", "директория на выгруз")
@@ -47,9 +50,9 @@ func main() {
 	http.HandleFunc("/api/todos", enableCORS(func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodGet:
-			GetTodosHandler(w, r)
+			handlers.GetTodosHandler(w, r)
 		case http.MethodPost:
-			PostTodoHandler(w, r)
+			handlers.PostTodoHandler(w, r)
 		case http.MethodOptions:
 			w.WriteHeader(http.StatusOK)
 		default:
@@ -60,9 +63,9 @@ func main() {
 	http.HandleFunc("/api/todos/", enableCORS(func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodPut:
-			UpdateTodoHandler(w, r)
+			handlers.UpdateTodoHandler(w, r)
 		case http.MethodDelete:
-			DeleteTodoHandler(w, r)
+			handlers.DeleteTodoHandler(w, r)
 		case http.MethodOptions:
 			w.WriteHeader(http.StatusOK)
 		default:

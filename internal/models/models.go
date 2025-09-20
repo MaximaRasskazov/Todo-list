@@ -1,4 +1,4 @@
-package main
+package models
 
 import "time"
 
@@ -12,6 +12,6 @@ type Todo struct {
 
 // Глобальные переменные (временное решение до подключения БД)
 var (
-	todos     []Todo
-	currentID int
+	Todos     []Todo
+	CurrentID int
 )
