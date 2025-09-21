@@ -125,10 +125,10 @@ DELETE /api/todos/:id
 
 ```
 to-do-list/
-├── frontend/           # Фронтенд приложения
+├── static/           # Фронтенд приложения
 │   ├── index.html
-│   ├── styles.css
-│   └── script.js
+│   ├── style
+│   └── js
 ├── cmd/
 │   └── server/         # Основной исполняемый пакет
 │       └── main.go
@@ -136,8 +136,6 @@ to-do-list/
 │   ├── handlers/       # HTTP обработчики
 │   ├── models/         # Модели данных
 │   └── database/       # Работа с базой данных
-├── docker-compose.yml  # Конфигурация Docker Compose
-├── Dockerfile         # Конфигурация Docker
 ├── .env.example       # Пример файла окружения
 ├── go.mod            # Модули Go
 └── README.md         # Документация
