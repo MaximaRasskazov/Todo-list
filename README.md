@@ -180,23 +180,11 @@ go build -o todo-app ./cmd/server
 - [ ] Добавление дедлайнов для задач
 - [ ] Уведомления о предстоящих задачах
 
-## 🤝 Участие в разработке
-
-1. Форкните репозиторий
-2. Создайте ветку для вашей функции (`git checkout -b feature/amazing-feature`)
-3. Закоммитьте изменения (`git commit -m 'Add some amazing feature'`)
-4. Запушьте в ветку (`git push origin feature/amazing-feature`)
-5. Откройте Pull Request
-
-## 📄 Лицензия
-
-Этот проект распространяется под лицензией MIT. Подробнее см. в файле LICENSE.
-
 ## 📞 Контакты
 
-Ваше имя - [your.email@example.com](mailto:your.email@example.com)
+Ваше имя - [MaximaRasskazov@gmail.com](mailto:MaximaRasskazov@gmail.com)
 
-Ссылка на проект: [https://github.com/your-username/to-do-list](https://github.com/your-username/to-do-list)
+Ссылка на проект: [https://github.com/MaximaRasskazov/Todo-list]([https://github.com/MaximaRasskazov/Todo-list])
 
 ---
 
