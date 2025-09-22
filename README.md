@@ -184,7 +184,7 @@ go build -o todo-app ./cmd/server
 
 Ваше имя - [MaximaRasskazov@gmail.com](mailto:MaximaRasskazov@gmail.com)
 
-Ссылка на проект: [https://github.com/MaximaRasskazov/Todo-list]([https://github.com/MaximaRasskazov/Todo-list])
+Ссылка на проект: [MaximaRasskazov/Todo-list](https://github.com/MaximaRasskazov/Todo-list)
 
 ---
 
