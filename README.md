@@ -125,7 +125,7 @@ DELETE /api/todos/:id
 
 ```
 to-do-list/
-├── static/           # Фронтенд приложения
+├── static/             # Фронтенд приложения
 │   ├── index.html
 │   ├── style
 │   └── js
@@ -136,9 +136,15 @@ to-do-list/
 │   ├── handlers/       # HTTP обработчики
 │   ├── models/         # Модели данных
 │   └── database/       # Работа с базой данных
-├── .env.example       # Пример файла окружения
-├── go.mod            # Модули Go
-└── README.md         # Документация
+├── migrations/
+│   ├── 001_init_todos.sql
+│   └── 002_add_description.sql
+├── .env
+├── Dockerfile
+├── .dockerignore
+├── docker-compose.yml
+├── go.mod              # Модули Go
+└── README.md           # Документация
 ```
 
 ## 🔧 Разработка
