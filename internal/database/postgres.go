@@ -48,9 +48,17 @@ func Init() error {
 		return fmt.Errorf("error connecting to database: %w", err)
 	}
 
-	// Проверяем соединение
-	if err := DB.Ping(context.Background()); err != nil {
-		return fmt.Errorf("error pinging database: %w", err)
+	for i := 0; i < 5; i++ {
+		err = DB.Ping(context.Background())
+		if err == nil {
+			break
+		}
+		log.Printf("Waiting for database... attempt %d/5", i+1)
+		time.Sleep(2 * time.Second)
+	}
+
+	if err != nil {
+		return fmt.Errorf("error pinging database after retries: %w", err)
 	}
 
 	log.Println("Successfully connected to PostgreSQL database")
